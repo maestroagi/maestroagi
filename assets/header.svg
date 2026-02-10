@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="200" viewBox="0 0 850 200">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D1117">
+        <animate attributeName="stop-color" values="#0D1117;#1a0533;#0D1117" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#1a0533">
+        <animate attributeName="stop-color" values="#1a0533;#0D1117;#1a0533" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#0D1117">
+        <animate attributeName="stop-color" values="#0D1117;#1a0533;#0D1117" dur="8s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    <filter id="glow-cyan">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-soft">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <style>
+    @keyframes float1 { 0%,100% { transform: translate(0,0); opacity:0.3; } 50% { transform: translate(10px,-15px); opacity:0.7; } }
+    @keyframes float2 { 0%,100% { transform: translate(0,0); opacity:0.2; } 50% { transform: translate(-8px,12px); opacity:0.6; } }
+    @keyframes float3 { 0%,100% { transform: translate(0,0); opacity:0.4; } 50% { transform: translate(15px,8px); opacity:0.8; } }
+    @keyframes float4 { 0%,100% { transform: translate(0,0); opacity:0.2; } 50% { transform: translate(-12px,-10px); opacity:0.5; } }
+    @keyframes fadeText1 { 0%,20% { opacity:1; } 22%,100% { opacity:0; } }
+    @keyframes fadeText2 { 0%,24% { opacity:0; } 25%,45% { opacity:1; } 47%,100% { opacity:0; } }
+    @keyframes fadeText3 { 0%,49% { opacity:0; } 50%,70% { opacity:1; } 72%,100% { opacity:0; } }
+    @keyframes fadeText4 { 0%,74% { opacity:0; } 75%,95% { opacity:1; } 97%,100% { opacity:0; } }
+    @keyframes typewriter { 0% { width: 0; } 40% { width: 320px; } 60% { width: 320px; } 80% { width: 320px; } 100% { width: 320px; } }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+    @keyframes titlePulse { 0%,100% { opacity:0.9; } 50% { opacity:1; } }
+    .particle { fill: #00D9FF; }
+    .particle-purple { fill: #BD00FF; }
+    .particle-green { fill: #00FF88; }
+    .p1 { animation: float1 6s ease-in-out infinite; }
+    .p2 { animation: float2 8s ease-in-out infinite; }
+    .p3 { animation: float3 7s ease-in-out infinite; }
+    .p4 { animation: float4 9s ease-in-out infinite; }
+    .p5 { animation: float1 5s ease-in-out infinite 1s; }
+    .p6 { animation: float2 7s ease-in-out infinite 2s; }
+    .p7 { animation: float3 6s ease-in-out infinite 0.5s; }
+    .p8 { animation: float4 8s ease-in-out infinite 1.5s; }
+    .p9 { animation: float1 9s ease-in-out infinite 3s; }
+    .p10 { animation: float2 6s ease-in-out infinite 2.5s; }
+    .sub1 { animation: fadeText1 16s ease-in-out infinite; }
+    .sub2 { animation: fadeText2 16s ease-in-out infinite; }
+    .sub3 { animation: fadeText3 16s ease-in-out infinite; }
+    .sub4 { animation: fadeText4 16s ease-in-out infinite; }
+    .title { font-family: 'Courier New', monospace; font-weight: bold; font-size: 42px; fill: #FFFFFF; filter: url(#glow-cyan); animation: titlePulse 4s ease-in-out infinite; }
+    .subtitle { font-family: 'Courier New', monospace; font-size: 16px; fill: #00D9FF; }
+    .codeline { font-family: 'Courier New', monospace; font-size: 12px; fill: #30363D; }
+    .cursor { animation: blink 1s step-end infinite; fill: #00FF88; }
+  </style>
+
+  <!-- Background -->
+  <rect width="850" height="200" fill="url(#bg-grad)" rx="6"/>
+
+  <!-- Border glow -->
+  <rect width="848" height="198" x="1" y="1" fill="none" stroke="#30363D" stroke-width="1" rx="6" opacity="0.5"/>
+
+  <!-- Particles -->
+  <circle cx="80" cy="40" r="1.5" class="particle p1"/>
+  <circle cx="200" cy="160" r="1" class="particle-purple p2"/>
+  <circle cx="350" cy="30" r="1.2" class="particle p3"/>
+  <circle cx="500" cy="170" r="1" class="particle-green p4"/>
+  <circle cx="650" cy="50" r="1.5" class="particle-purple p5"/>
+  <circle cx="750" cy="140" r="1" class="particle p6"/>
+  <circle cx="120" cy="120" r="1.2" class="particle-green p7"/>
+  <circle cx="400" cy="90" r="0.8" class="particle p8"/>
+  <circle cx="580" cy="130" r="1" class="particle-purple p9"/>
+  <circle cx="700" cy="60" r="1.3" class="particle-green p10"/>
+  <circle cx="280" cy="80" r="0.8" class="particle p2"/>
+  <circle cx="820" cy="100" r="1" class="particle-purple p3"/>
+  <circle cx="50" cy="170" r="1.1" class="particle p5"/>
+  <circle cx="460" cy="25" r="0.9" class="particle-green p1"/>
+
+  <!-- Code line in background -->
+  <text x="60" y="185" class="codeline">&gt; initializing autonomous systems...</text>
+  <rect x="318" y="174" width="8" height="14" class="cursor"/>
+
+  <!-- Main Title -->
+  <text x="425" y="85" text-anchor="middle" class="title">MAESTRO AGI</text>
+
+  <!-- Rotating subtitles -->
+  <text x="425" y="125" text-anchor="middle" class="subtitle sub1">DevOps &amp; Automation Engineer</text>
+  <text x="425" y="125" text-anchor="middle" class="subtitle sub2">Building Autonomous AI Agents</text>
+  <text x="425" y="125" text-anchor="middle" class="subtitle sub3">CI/CD Pipeline Architect</text>
+  <text x="425" y="125" text-anchor="middle" class="subtitle sub4">Open Source Contributor</text>
+
+  <!-- Decorative corner accents -->
+  <line x1="20" y1="15" x2="50" y2="15" stroke="#00D9FF" stroke-width="1" opacity="0.4"/>
+  <line x1="20" y1="15" x2="20" y2="45" stroke="#00D9FF" stroke-width="1" opacity="0.4"/>
+  <line x1="800" y1="185" x2="830" y2="185" stroke="#BD00FF" stroke-width="1" opacity="0.4"/>
+  <line x1="830" y1="155" x2="830" y2="185" stroke="#BD00FF" stroke-width="1" opacity="0.4"/>
+</svg>
