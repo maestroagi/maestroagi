@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="220" viewBox="0 0 850 220">
+  <defs>
+    <linearGradient id="mis-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1117"/>
+      <stop offset="50%" stop-color="#0f0d1a"/>
+      <stop offset="100%" stop-color="#0D1117"/>
+    </linearGradient>
+    <linearGradient id="heart-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D9FF"/>
+      <stop offset="50%" stop-color="#BD00FF"/>
+      <stop offset="100%" stop-color="#00FF88"/>
+    </linearGradient>
+    <linearGradient id="infinity-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D9FF"/>
+      <stop offset="33%" stop-color="#BD00FF"/>
+      <stop offset="66%" stop-color="#00FF88"/>
+      <stop offset="100%" stop-color="#00D9FF"/>
+    </linearGradient>
+    <filter id="mis-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="mis-glow-soft">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="mis-orb" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#BD00FF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#BD00FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    @keyframes infinityDash { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -60; } }
+    @keyframes heartBeat { 0%,100% { transform: scale(1); } 10% { transform: scale(1.12); } 20% { transform: scale(1); } 30% { transform: scale(1.08); } 40%,100% { transform: scale(1); } }
+    @keyframes textReveal1 { 0%,100% { opacity: 0.7; } 50% { opacity: 1; } }
+    @keyframes textReveal2 { 0%,100% { opacity: 0.6; } 50% { opacity: 0.9; } }
+    @keyframes orbFloat { 0%,100% { transform: translate(0,0); } 50% { transform: translate(20px,-10px); } }
+    @keyframes nodeGlow { 0%,100% { opacity:0.15; } 50% { opacity:0.35; } }
+    @keyframes recursiveArrow { 0% { stroke-dashoffset: 20; } 100% { stroke-dashoffset: 0; } }
+    @keyframes vertPulse { 0%,100% { opacity:0.3; } 50% { opacity:0.7; } }
+    .infinity-path { fill: none; stroke: url(#infinity-grad); stroke-width: 2; stroke-dasharray: 10 5; animation: infinityDash 4s linear infinite; filter: url(#mis-glow-soft); }
+    .heart-g { animation: heartBeat 3s ease-in-out infinite; transform-origin: 425px 50px; }
+    .m-title { font-family: 'Courier New', monospace; font-size: 14px; fill: #E6EDF3; font-weight: bold; animation: textReveal1 6s ease-in-out infinite; }
+    .m-body { font-family: 'Courier New', monospace; font-size: 11px; fill: #8B949E; animation: textReveal2 8s ease-in-out infinite; }
+    .m-accent { fill: #00D9FF; font-weight: bold; }
+    .m-highlight { fill: #BD00FF; font-weight: bold; }
+    .m-green { fill: #00FF88; font-weight: bold; }
+    .m-orb { animation: orbFloat 10s ease-in-out infinite; }
+    .m-keyword { font-family: 'Courier New', monospace; font-size: 10px; fill: #30363D; }
+    .rec-arrow { stroke-dasharray: 6 4; animation: recursiveArrow 2s linear infinite; fill: none; stroke-width: 1; }
+    .vert-line { animation: vertPulse 4s ease-in-out infinite; }
+    .vert-line2 { animation: vertPulse 4s ease-in-out infinite 2s; }
+    .pillar-box { fill: #161B22; rx: 8; stroke-width: 1; }
+    .pillar-title { font-family: 'Courier New', monospace; font-size: 10px; font-weight: bold; }
+    .pillar-desc { font-family: 'Courier New', monospace; font-size: 8px; fill: #8B949E; }
+  </style>
+
+  <!-- Background -->
+  <rect width="850" height="220" fill="url(#mis-bg)" rx="8"/>
+  <rect width="848" height="218" x="1" y="1" fill="none" stroke="#30363D" stroke-width="1" rx="8" opacity="0.4"/>
+
+  <!-- Ambient orb -->
+  <circle cx="425" cy="110" r="120" fill="url(#mis-orb)" class="m-orb"/>
+
+  <!-- Vertical accent lines -->
+  <line x1="30" y1="20" x2="30" y2="200" stroke="#00D9FF" stroke-width="0.5" class="vert-line" opacity="0.3"/>
+  <line x1="820" y1="20" x2="820" y2="200" stroke="#BD00FF" stroke-width="0.5" class="vert-line2" opacity="0.3"/>
+
+  <!-- Infinity symbol (auto-recursivity) -->
+  <path d="M 390 50 C 370 25, 340 25, 340 50 C 340 75, 370 75, 390 50 C 410 25, 440 25, 460 50 C 480 75, 460 75, 440 50 C 420 25, 410 25, 390 50" class="infinity-path" transform="translate(25, 0)"/>
+
+  <!-- Heart in center of infinity -->
+  <g class="heart-g">
+    <path d="M 425 44 C 425 38, 418 34, 414 38 C 410 42, 414 48, 425 56 C 436 48, 440 42, 436 38 C 432 34, 425 38, 425 44" fill="url(#heart-grad)" opacity="0.6"/>
+  </g>
+
+  <!-- Main mission statement -->
+  <text x="425" y="90" text-anchor="middle" class="m-title">
+    <tspan class="m-accent">MISSION</tspan>: Open Source Auto-Recursivity for Human Progress
+  </text>
+
+  <text x="425" y="112" text-anchor="middle" class="m-body">
+    Technology must serve
+    <tspan class="m-highlight">human dignity</tspan>
+    above all else.
+  </text>
+  <text x="425" y="128" text-anchor="middle" class="m-body">
+    Every pipeline we build, every agent we deploy, every line of code we write
+  </text>
+  <text x="425" y="144" text-anchor="middle" class="m-body">
+    exists to
+    <tspan class="m-green">amplify human potential</tspan>,
+    not replace it.
+  </text>
+
+  <!-- Three pillars -->
+  <!-- Pillar 1: Auto-Recursivity -->
+  <g>
+    <rect x="70" y="160" width="220" height="44" class="pillar-box" stroke="#00D9FF"/>
+    <circle cx="86" cy="182" r="3" fill="#00D9FF" opacity="0.5" class="nodeGlow"/>
+    <!-- Recursive arrow icon -->
+    <path d="M 96 176 A 6 6 0 1 1 96 188" class="rec-arrow" stroke="#00D9FF"/>
+    <polygon points="94,188 98,188 96,192" fill="#00D9FF" opacity="0.5"/>
+    <text x="110" y="178" class="pillar-title" fill="#00D9FF">AUTO-RECURSIVITY</text>
+    <text x="110" y="194" class="pillar-desc">Systems that improve themselves</text>
+  </g>
+
+  <!-- Pillar 2: Human Dignity -->
+  <g>
+    <rect x="315" y="160" width="220" height="44" class="pillar-box" stroke="#BD00FF"/>
+    <circle cx="331" cy="182" r="3" fill="#BD00FF" opacity="0.5"/>
+    <path d="M 341 176 C 341 172, 336 170, 334 173 C 332 176, 336 180, 341 185 C 346 180, 350 176, 348 173 C 346 170, 341 172, 341 176" fill="#BD00FF" opacity="0.5"/>
+    <text x="355" y="178" class="pillar-title" fill="#BD00FF">HUMAN DIGNITY</text>
+    <text x="355" y="194" class="pillar-desc">Life's value is non-negotiable</text>
+  </g>
+
+  <!-- Pillar 3: Open Source -->
+  <g>
+    <rect x="560" y="160" width="220" height="44" class="pillar-box" stroke="#00FF88"/>
+    <circle cx="576" cy="182" r="3" fill="#00FF88" opacity="0.5"/>
+    <circle cx="586" cy="182" r="6" fill="none" stroke="#00FF88" stroke-width="0.8" opacity="0.5"/>
+    <path d="M 583 185 L 580 190" stroke="#00FF88" stroke-width="0.8" opacity="0.5"/>
+    <path d="M 589 185 L 592 190" stroke="#00FF88" stroke-width="0.8" opacity="0.5"/>
+    <text x="600" y="178" class="pillar-title" fill="#00FF88">OPEN SOURCE</text>
+    <text x="600" y="194" class="pillar-desc">Knowledge belongs to everyone</text>
+  </g>
+
+  <!-- Bottom quote line -->
+  <text x="425" y="215" text-anchor="middle" font-family="Courier New, monospace" font-size="9" fill="#484F58" opacity="0.5">
+    "The measure of progress is not what we automate, but whom we liberate."
+  </text>
+</svg>

@@ -1,77 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="850" height="80" viewBox="0 0 850 80">
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="100" viewBox="0 0 850 100">
   <defs>
-    <linearGradient id="footer-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="ft-grad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#00D9FF" stop-opacity="0"/>
-      <stop offset="30%" stop-color="#00D9FF" stop-opacity="0.8"/>
-      <stop offset="50%" stop-color="#BD00FF" stop-opacity="1"/>
-      <stop offset="70%" stop-color="#00D9FF" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#00D9FF" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#00D9FF" stop-opacity="0.6"/>
+      <stop offset="40%" stop-color="#BD00FF" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#BD00FF" stop-opacity="0.9"/>
+      <stop offset="80%" stop-color="#00FF88" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#00FF88" stop-opacity="0"/>
     </linearGradient>
-    <filter id="line-glow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="ft-glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
   <style>
-    @keyframes line-pulse { 0%,100% { opacity:0.6; } 50% { opacity:1; } }
-    @keyframes text-fadein { 0%,10% { opacity:0; } 30%,100% { opacity:1; } }
-    @keyframes shimmer { 0% { transform: translateX(-850px); } 100% { transform: translateX(850px); } }
-    @keyframes matrix-drop1 { 0% { transform: translateY(-20px); opacity:0; } 10% { opacity:0.15; } 90% { opacity:0.15; } 100% { transform: translateY(80px); opacity:0; } }
-    @keyframes matrix-drop2 { 0% { transform: translateY(-30px); opacity:0; } 10% { opacity:0.12; } 90% { opacity:0.12; } 100% { transform: translateY(90px); opacity:0; } }
-    @keyframes matrix-drop3 { 0% { transform: translateY(-15px); opacity:0; } 10% { opacity:0.1; } 90% { opacity:0.1; } 100% { transform: translateY(70px); opacity:0; } }
-    .bg { fill: #0D1117; }
-    .neon-line { stroke: url(#footer-grad); stroke-width: 2; filter: url(#line-glow); animation: line-pulse 3s ease-in-out infinite; }
-    .footer-text { font-family: 'Courier New', monospace; font-size: 13px; fill: #C9D1D9; animation: text-fadein 3s ease-in-out; }
-    .footer-accent { fill: #00D9FF; }
-    .matrix-char { font-family: 'Courier New', monospace; font-size: 10px; fill: #00FF88; }
-    .m1 { animation: matrix-drop1 4s linear infinite; }
-    .m2 { animation: matrix-drop2 5s linear infinite 1s; }
-    .m3 { animation: matrix-drop3 6s linear infinite 2s; }
-    .m4 { animation: matrix-drop1 4.5s linear infinite 0.5s; }
-    .m5 { animation: matrix-drop2 5.5s linear infinite 1.5s; }
-    .m6 { animation: matrix-drop3 3.5s linear infinite 0.8s; }
-    .m7 { animation: matrix-drop1 6s linear infinite 2.5s; }
-    .m8 { animation: matrix-drop2 4s linear infinite 1.2s; }
-    .shimmer-rect { fill: rgba(0, 217, 255, 0.05); animation: shimmer 4s linear infinite; }
+    @keyframes ft-pulse { 0%,100% { opacity:0.5; } 50% { opacity:1; } }
+    @keyframes ft-text-fade { 0%,15% { opacity:0; } 25%,100% { opacity:1; } }
+    @keyframes ft-shimmer { 0% { transform: translateX(-400px); } 100% { transform: translateX(850px); } }
+    @keyframes matDrop1 { 0% { transform: translateY(-30px); opacity:0; } 8% { opacity:0.1; } 92% { opacity:0.1; } 100% { transform: translateY(100px); opacity:0; } }
+    @keyframes matDrop2 { 0% { transform: translateY(-20px); opacity:0; } 8% { opacity:0.08; } 92% { opacity:0.08; } 100% { transform: translateY(90px); opacity:0; } }
+    @keyframes matDrop3 { 0% { transform: translateY(-25px); opacity:0; } 8% { opacity:0.12; } 92% { opacity:0.12; } 100% { transform: translateY(85px); opacity:0; } }
+    @keyframes botMiniFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+    @keyframes miniEyeBlink { 0%,45%,47%,100% { ry:2.5; } 46% { ry:0.5; } }
+    @keyframes miniAntenna { 0%,100% { opacity:0.3; } 50% { opacity:0.9; } }
+    .ft-line { stroke: url(#ft-grad); stroke-width: 2; filter: url(#ft-glow); animation: ft-pulse 4s ease-in-out infinite; }
+    .ft-text { font-family: 'Courier New', monospace; font-size: 13px; fill: #C9D1D9; animation: ft-text-fade 3s ease-in-out; }
+    .ft-highlight { fill: #00D9FF; }
+    .ft-shimmer { fill: rgba(255,255,255,0.1); animation: ft-shimmer 5s ease-in-out infinite; }
+    .mx { font-family: 'Courier New', monospace; font-size: 9px; fill: #00FF88; }
+    .md1 { animation: matDrop1 5s linear infinite; }
+    .md2 { animation: matDrop2 6s linear infinite 1s; }
+    .md3 { animation: matDrop3 4.5s linear infinite 2s; }
+    .md4 { animation: matDrop1 5.5s linear infinite 0.5s; }
+    .md5 { animation: matDrop2 4s linear infinite 1.5s; }
+    .md6 { animation: matDrop3 6.5s linear infinite 2.5s; }
+    .md7 { animation: matDrop1 5s linear infinite 3s; }
+    .md8 { animation: matDrop2 4.5s linear infinite 3.5s; }
+    .mini-bot { animation: botMiniFloat 3s ease-in-out infinite; }
+    .mini-eye-l { animation: miniEyeBlink 4s ease-in-out infinite; }
+    .mini-eye-r { animation: miniEyeBlink 4s ease-in-out infinite 0.1s; }
+    .mini-antenna { animation: miniAntenna 2s ease-in-out infinite; }
+    .ft-sub { font-family: 'Courier New', monospace; font-size: 9px; fill: #484F58; }
   </style>
 
   <!-- Background -->
-  <rect width="850" height="80" class="bg" rx="6"/>
+  <rect width="850" height="100" fill="#0D1117" rx="8"/>
 
-  <!-- Matrix rain (very subtle) -->
-  <text x="70" y="20" class="matrix-char m1">0</text>
-  <text x="70" y="35" class="matrix-char m1">1</text>
-  <text x="150" y="10" class="matrix-char m2">1</text>
-  <text x="150" y="25" class="matrix-char m2">0</text>
-  <text x="150" y="40" class="matrix-char m2">1</text>
-  <text x="300" y="15" class="matrix-char m3">0</text>
-  <text x="300" y="30" class="matrix-char m3">0</text>
-  <text x="500" y="20" class="matrix-char m4">1</text>
-  <text x="500" y="35" class="matrix-char m4">1</text>
-  <text x="620" y="10" class="matrix-char m5">0</text>
-  <text x="620" y="25" class="matrix-char m5">1</text>
-  <text x="620" y="40" class="matrix-char m5">0</text>
-  <text x="740" y="18" class="matrix-char m6">1</text>
-  <text x="740" y="33" class="matrix-char m6">0</text>
-  <text x="220" y="12" class="matrix-char m7">1</text>
-  <text x="220" y="27" class="matrix-char m7">0</text>
-  <text x="420" y="22" class="matrix-char m8">0</text>
-  <text x="420" y="37" class="matrix-char m8">1</text>
+  <!-- Matrix rain -->
+  <text x="55" y="15" class="mx md1">01</text>
+  <text x="55" y="28" class="mx md1">10</text>
+  <text x="140" y="8" class="mx md2">11</text>
+  <text x="140" y="21" class="mx md2">00</text>
+  <text x="140" y="34" class="mx md2">01</text>
+  <text x="280" y="12" class="mx md3">10</text>
+  <text x="280" y="25" class="mx md3">11</text>
+  <text x="430" y="18" class="mx md4">01</text>
+  <text x="430" y="31" class="mx md4">10</text>
+  <text x="560" y="10" class="mx md5">11</text>
+  <text x="560" y="23" class="mx md5">01</text>
+  <text x="560" y="36" class="mx md5">00</text>
+  <text x="680" y="14" class="mx md6">10</text>
+  <text x="680" y="27" class="mx md6">01</text>
+  <text x="770" y="20" class="mx md7">11</text>
+  <text x="770" y="33" class="mx md7">10</text>
+  <text x="200" y="16" class="mx md8">00</text>
+  <text x="200" y="29" class="mx md8">11</text>
 
   <!-- Neon line -->
-  <line x1="50" y1="25" x2="800" y2="25" class="neon-line"/>
+  <line x1="30" y1="30" x2="820" y2="30" class="ft-line"/>
 
-  <!-- Shimmer effect on line -->
-  <rect x="-850" y="22" width="200" height="6" class="shimmer-rect" rx="3"/>
+  <!-- Shimmer effect -->
+  <rect x="-400" y="27" width="180" height="6" rx="3" class="ft-shimmer"/>
+
+  <!-- Mini bot mascot -->
+  <g class="mini-bot">
+    <!-- Mini body -->
+    <rect x="364" y="50" width="18" height="18" rx="4" fill="#161B22" stroke="#30363D" stroke-width="0.7"/>
+    <!-- Mini head -->
+    <rect x="362" y="38" width="22" height="15" rx="5" fill="#161B22" stroke="#30363D" stroke-width="0.7"/>
+    <!-- Mini face -->
+    <rect x="365" y="41" width="16" height="9" rx="3" fill="#0D1117"/>
+    <!-- Mini eyes -->
+    <ellipse cx="370" cy="45" rx="2" ry="2.5" fill="#00D9FF" class="mini-eye-l"/>
+    <ellipse cx="378" cy="45" rx="2" ry="2.5" fill="#00D9FF" class="mini-eye-r"/>
+    <!-- Mini antenna -->
+    <line x1="373" y1="38" x2="373" y2="33" stroke="#30363D" stroke-width="1"/>
+    <circle cx="373" cy="31" r="2" fill="#BD00FF" class="mini-antenna" opacity="0.3"/>
+  </g>
 
   <!-- Footer text -->
-  <text x="425" y="55" text-anchor="middle" class="footer-text">
-    <tspan class="footer-accent">&#x26A1;</tspan> Automating the future, one pipeline at a time
+  <text x="425" y="60" text-anchor="middle" class="ft-text">
+    <tspan class="ft-highlight">&#x26A1;</tspan> Automating the future, one pipeline at a time
   </text>
 
-  <!-- Subtle bottom border -->
-  <line x1="200" y1="70" x2="650" y2="70" stroke="#30363D" stroke-width="0.5" opacity="0.3"/>
+  <!-- Sub text -->
+  <text x="425" y="82" text-anchor="middle" class="ft-sub">
+    recursive autonomy // open source // human dignity first
+  </text>
+
+  <!-- Bottom accent -->
+  <line x1="300" y1="92" x2="550" y2="92" stroke="#30363D" stroke-width="0.5" opacity="0.3"/>
 </svg>

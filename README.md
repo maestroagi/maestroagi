@@ -1,11 +1,11 @@
 <div align="center">
 
-<img src="assets/header.svg" width="100%" alt="maestroagi header" />
+<img src="assets/header.svg" width="100%" alt="MAESTRO AGI — DevOps & Automation Engineer building autonomous AI agents" />
 
 <br/>
 
 <p>
-  <em>Building intelligent systems that think, act, and deploy autonomously.</em>
+  <em>Building intelligent systems that think, act, and deploy autonomously — for the benefit of all.</em>
 </p>
 
 <a href="https://github.com/maestroagi">
@@ -24,16 +24,24 @@
 
 ### `> whoami`
 
-Soy un **DevOps & Automation Engineer** obsesionado con llevar la automatización al extremo. Diseño pipelines CI/CD que se mantienen solos, construyo agentes autónomos que ejecutan tareas sin supervisión, y contribuyo a proyectos open source.
+I'm a **DevOps & Automation Engineer** obsessed with pushing automation to its absolute limit. I design self-maintaining CI/CD pipelines, build autonomous agents that execute tasks without supervision, and contribute to open source projects that serve human progress.
 
-> *Mi filosofía: si lo haces dos veces, automatízalo.*
+> *My philosophy: if you do it twice, automate it. If you automate it, make it recursive. If it's recursive, open-source it.*
+
+<img src="assets/divider.svg" width="100%" />
+
+### `> cat mission.md`
+
+<div align="center">
+<img src="assets/mission.svg" width="100%" alt="Mission: Open Source Auto-Recursivity for Human Progress" />
+</div>
 
 <img src="assets/divider.svg" width="100%" />
 
 ### `> tech_stack --list`
 
 <div align="center">
-<img src="assets/tech-stack.svg" width="100%" alt="tech stack" />
+<img src="assets/tech-stack.svg" width="100%" alt="tech stack pipeline" />
 </div>
 
 <img src="assets/divider.svg" width="100%" />
@@ -41,7 +49,7 @@ Soy un **DevOps & Automation Engineer** obsesionado con llevar la automatizació
 ### `> system_status --dashboard`
 
 <div align="center">
-<img src="assets/metrics.svg" width="100%" alt="system metrics" />
+<img src="assets/metrics.svg" width="100%" alt="system metrics dashboard" />
 </div>
 
 <img src="assets/divider.svg" width="100%" />
@@ -49,16 +57,16 @@ Soy un **DevOps & Automation Engineer** obsesionado con llevar la automatizació
 ### `> projects --graph`
 
 <div align="center">
-<img src="assets/projects.svg" width="100%" alt="projects network" />
+<img src="assets/projects.svg" width="100%" alt="projects network graph" />
 </div>
 
 <br/>
 
 | Project | Description | Stack |
 |:--------|:------------|:------|
-| [OpenClaw](https://github.com/maestroagi/openclaw) | Custom fork con CI/CD automatizado, upstream sync, webhooks & Telegram alerts | TypeScript, Docker, GitHub Actions |
-| [Agent Suite](https://github.com/maestroagi/test-agent-001) | Agentes autónomos para automatización de tareas | Python |
-| [AGI Deployments](https://github.com/maestroagi/WEBSITE_AGI_DEPLOYMENTS) | Web deployments y landing pages | HTML, CSS, JS |
+| [OpenClaw](https://github.com/maestroagi/openclaw) | Custom fork with automated CI/CD, upstream sync, deploy webhooks & Telegram alerts | TypeScript, Docker, GitHub Actions |
+| [Agent Suite](https://github.com/maestroagi/test-agent-001) | Autonomous agents for recursive task automation | Python |
+| [AGI Deployments](https://github.com/maestroagi/WEBSITE_AGI_DEPLOYMENTS) | Web deployments and landing pages for AGI projects | HTML, CSS, JS |
 
 <img src="assets/divider.svg" width="100%" />
 
@@ -84,10 +92,35 @@ Soy un **DevOps & Automation Engineer** obsesionado con llevar la automatizació
 <div align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/maestroagi/maestroagi/output/github-snake-dark.svg" />
-  <img src="https://raw.githubusercontent.com/maestroagi/maestroagi/output/github-snake.svg" alt="contribution snake" />
+  <img src="https://raw.githubusercontent.com/maestroagi/maestroagi/output/github-snake.svg" alt="contribution snake animation" />
 </picture>
 </div>
 
+<img src="assets/divider.svg" width="100%" />
+
+### `> cat principles.md`
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│   01. The value of a dignified human life is the highest value  │
+│   02. Technology exists to amplify human potential              │
+│   03. Open source is the engine of collective progress          │
+│   04. Auto-recursivity: systems that improve themselves         │
+│   05. Automate to liberate, not to replace                     │
+│   06. Share knowledge freely — it belongs to everyone           │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
 <br/>
 
-<img src="assets/footer.svg" width="100%" />
+<div align="center">
+
+<img src="assets/bot-mascot.svg" width="120" alt="AGI Bot Mascot" />
+
+<br/>
+
+<img src="assets/footer.svg" width="100%" alt="Automating the future, one pipeline at a time" />
+
+</div>

@@ -1,127 +1,137 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="850" height="250" viewBox="0 0 850 250">
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="280" viewBox="0 0 850 280">
   <defs>
     <filter id="glow-center">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <filter id="glow-node">
       <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <radialGradient id="center-orb" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#00D9FF" stop-opacity="0.2"/>
+      <stop offset="60%" stop-color="#BD00FF" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#0D1117" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <style>
-    @keyframes center-pulse { 0%,100% { r:38; opacity:0.15; } 50% { r:44; opacity:0.25; } }
-    @keyframes node-pulse1 { 0%,100% { opacity:0.7; } 50% { opacity:1; } }
-    @keyframes node-pulse2 { 0%,100% { opacity:0.7; } 50% { opacity:1; } }
-    @keyframes node-pulse3 { 0%,100% { opacity:0.7; } 50% { opacity:1; } }
-    @keyframes node-pulse4 { 0%,100% { opacity:0.7; } 50% { opacity:1; } }
-    @keyframes travel1 { 0% { offset-distance: 0%; opacity:1; } 100% { offset-distance: 100%; opacity:1; } }
-    @keyframes travel2 { 0% { offset-distance: 0%; opacity:1; } 100% { offset-distance: 100%; opacity:1; } }
-    @keyframes travel3 { 0% { offset-distance: 0%; opacity:1; } 100% { offset-distance: 100%; opacity:1; } }
-    @keyframes travel4 { 0% { offset-distance: 0%; opacity:1; } 100% { offset-distance: 100%; opacity:1; } }
-    @keyframes dash-anim { 0% { stroke-dashoffset: 16; } 100% { stroke-dashoffset: 0; } }
+    @keyframes center-breathe { 0%,100% { r:40; opacity:0.12; } 50% { r:48; opacity:0.22; } }
+    @keyframes ring-spin { 0% { stroke-dashoffset:0; } 100% { stroke-dashoffset:-50; } }
+    @keyframes ring-spin-rev { 0% { stroke-dashoffset:0; } 100% { stroke-dashoffset:50; } }
+    @keyframes node-glow1 { 0%,100% { stroke-opacity:0.3; } 50% { stroke-opacity:0.8; } }
+    @keyframes node-glow2 { 0%,100% { stroke-opacity:0.3; } 50% { stroke-opacity:0.8; } }
+    @keyframes node-glow3 { 0%,100% { stroke-opacity:0.3; } 50% { stroke-opacity:0.8; } }
+    @keyframes node-glow4 { 0%,100% { stroke-opacity:0.3; } 50% { stroke-opacity:0.8; } }
+    @keyframes dash-flow { 0% { stroke-dashoffset:16; } 100% { stroke-dashoffset:0; } }
+    @keyframes conn-pulse { 0%,100% { opacity:0.2; } 50% { opacity:0.5; } }
     .bg { fill: #0D1117; }
-    .center-glow { fill: #00D9FF; animation: center-pulse 3s ease-in-out infinite; }
-    .center-ring { fill: #161B22; stroke: #00D9FF; stroke-width: 2; filter: url(#glow-center); }
-    .center-text { font-family: 'Courier New', monospace; font-size: 10px; fill: #FFFFFF; font-weight: bold; }
-    .node-bg { fill: #161B22; stroke-width: 1.5; rx: 8; }
-    .node1 { stroke: #00FF88; animation: node-pulse1 3s ease-in-out infinite; }
-    .node2 { stroke: #BD00FF; animation: node-pulse2 3s ease-in-out infinite 0.7s; }
-    .node3 { stroke: #00D9FF; animation: node-pulse3 3s ease-in-out infinite 1.4s; }
-    .node4 { stroke: #FCC624; animation: node-pulse4 3s ease-in-out infinite 2.1s; }
-    .node-title { font-family: 'Courier New', monospace; font-size: 11px; fill: #C9D1D9; font-weight: bold; }
-    .node-desc { font-family: 'Courier New', monospace; font-size: 9px; fill: #8B949E; }
-    .conn-line { stroke-dasharray: 6 4; animation: dash-anim 2s linear infinite; fill: none; stroke-width: 1.5; }
-    .conn1 { stroke: #00FF88; }
-    .conn2 { stroke: #BD00FF; }
-    .conn3 { stroke: #00D9FF; }
-    .conn4 { stroke: #FCC624; }
-    .dot-travel { r: 2.5; }
-    .icon { font-size: 16px; }
+    .center-aura { animation: center-breathe 4s ease-in-out infinite; }
+    .center-ring { fill: #161B22; stroke: #00D9FF; stroke-width: 2.5; filter: url(#glow-center); }
+    .center-text { font-family: 'Courier New', monospace; font-size: 11px; fill: #FFF; font-weight: bold; }
+    .inner-ring1 { stroke-dasharray: 8 6; animation: ring-spin 4s linear infinite; fill: none; stroke: #00D9FF; stroke-width: 0.8; opacity: 0.3; }
+    .inner-ring2 { stroke-dasharray: 5 8; animation: ring-spin-rev 6s linear infinite; fill: none; stroke: #BD00FF; stroke-width: 0.6; opacity: 0.2; }
+    .n-bg { fill: #161B22; rx: 10; }
+    .n1 { stroke: #00FF88; stroke-width: 1.5; animation: node-glow1 4s ease-in-out infinite; }
+    .n2 { stroke: #BD00FF; stroke-width: 1.5; animation: node-glow2 4s ease-in-out infinite 1s; }
+    .n3 { stroke: #00D9FF; stroke-width: 1.5; animation: node-glow3 4s ease-in-out infinite 2s; }
+    .n4 { stroke: #FCC624; stroke-width: 1.5; animation: node-glow4 4s ease-in-out infinite 3s; }
+    .n-title { font-family: 'Courier New', monospace; font-size: 12px; fill: #E6EDF3; font-weight: bold; }
+    .n-desc { font-family: 'Courier New', monospace; font-size: 9px; fill: #8B949E; }
+    .n-icon { font-size: 18px; }
+    .conn { stroke-dasharray: 6 4; animation: dash-flow 2.5s linear infinite; fill: none; stroke-width: 1.5; }
+    .conn-bg { fill: none; stroke-width: 6; animation: conn-pulse 3s ease-in-out infinite; }
+    .info-label { font-family: 'Courier New', monospace; font-size: 9px; fill: #484F58; }
   </style>
 
   <!-- Background -->
-  <rect width="850" height="250" class="bg" rx="6"/>
-  <rect width="848" height="248" x="1" y="1" fill="none" stroke="#30363D" stroke-width="1" rx="6" opacity="0.5"/>
+  <rect width="850" height="280" class="bg" rx="8"/>
+  <rect width="848" height="278" x="1" y="1" fill="none" stroke="#30363D" stroke-width="1" rx="8" opacity="0.4"/>
 
-  <!-- Connection lines from center to nodes -->
-  <!-- Center point: 425, 125 -->
-  <!-- Node 1 (top-left): 130, 55 -->
-  <path d="M 425 125 Q 280 70 195 55" class="conn-line conn1"/>
-  <!-- Node 2 (top-right): 680, 55 -->
-  <path d="M 425 125 Q 560 70 655 55" class="conn-line conn2"/>
-  <!-- Node 3 (bottom-left): 130, 195 -->
-  <path d="M 425 125 Q 280 180 195 195" class="conn-line conn3"/>
-  <!-- Node 4 (bottom-right): 680, 195 -->
-  <path d="M 425 125 Q 560 180 655 195" class="conn-line conn4"/>
+  <!-- Center glow orb -->
+  <circle cx="425" cy="140" r="80" fill="url(#center-orb)"/>
 
-  <!-- Traveling dots on connections -->
-  <circle r="2.5" fill="#00FF88">
-    <animateMotion dur="3s" repeatCount="indefinite" path="M 425 125 Q 280 70 195 55"/>
+  <!-- Background connection lines (glow) -->
+  <path d="M 425 140 Q 280 75 175 60" class="conn-bg" stroke="#00FF88" opacity="0.05"/>
+  <path d="M 425 140 Q 570 75 675 60" class="conn-bg" stroke="#BD00FF" opacity="0.05"/>
+  <path d="M 425 140 Q 280 210 175 225" class="conn-bg" stroke="#00D9FF" opacity="0.05"/>
+  <path d="M 425 140 Q 570 210 675 225" class="conn-bg" stroke="#FCC624" opacity="0.05"/>
+
+  <!-- Connection lines -->
+  <path d="M 425 140 Q 280 75 175 60" class="conn" stroke="#00FF88"/>
+  <path d="M 425 140 Q 570 75 675 60" class="conn" stroke="#BD00FF"/>
+  <path d="M 425 140 Q 280 210 175 225" class="conn" stroke="#00D9FF"/>
+  <path d="M 425 140 Q 570 210 675 225" class="conn" stroke="#FCC624"/>
+
+  <!-- Traveling particles -->
+  <circle r="3" fill="#00FF88" opacity="0.9">
+    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 425 140 Q 280 75 175 60"/>
   </circle>
-  <circle r="2" fill="#00FF88" opacity="0.5">
-    <animateMotion dur="3s" repeatCount="indefinite" path="M 425 125 Q 280 70 195 55" begin="1.5s"/>
+  <circle r="1.5" fill="#00FF88" opacity="0.4">
+    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 425 140 Q 280 75 175 60" begin="1.7s"/>
   </circle>
-  <circle r="2.5" fill="#BD00FF">
-    <animateMotion dur="3s" repeatCount="indefinite" path="M 425 125 Q 560 70 655 55"/>
+
+  <circle r="3" fill="#BD00FF" opacity="0.9">
+    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 425 140 Q 570 75 675 60"/>
   </circle>
-  <circle r="2" fill="#BD00FF" opacity="0.5">
-    <animateMotion dur="3s" repeatCount="indefinite" path="M 425 125 Q 560 70 655 55" begin="1.5s"/>
+  <circle r="1.5" fill="#BD00FF" opacity="0.4">
+    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 425 140 Q 570 75 675 60" begin="1.7s"/>
   </circle>
-  <circle r="2.5" fill="#00D9FF">
-    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 425 125 Q 280 180 195 195"/>
+
+  <circle r="3" fill="#00D9FF" opacity="0.9">
+    <animateMotion dur="4s" repeatCount="indefinite" path="M 425 140 Q 280 210 175 225"/>
   </circle>
-  <circle r="2" fill="#00D9FF" opacity="0.5">
-    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 425 125 Q 280 180 195 195" begin="1.7s"/>
+  <circle r="1.5" fill="#00D9FF" opacity="0.4">
+    <animateMotion dur="4s" repeatCount="indefinite" path="M 425 140 Q 280 210 175 225" begin="2s"/>
   </circle>
-  <circle r="2.5" fill="#FCC624">
-    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 425 125 Q 560 180 655 195"/>
+
+  <circle r="3" fill="#FCC624" opacity="0.9">
+    <animateMotion dur="4s" repeatCount="indefinite" path="M 425 140 Q 570 210 675 225"/>
   </circle>
-  <circle r="2" fill="#FCC624" opacity="0.5">
-    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 425 125 Q 560 180 655 195" begin="1.7s"/>
+  <circle r="1.5" fill="#FCC624" opacity="0.4">
+    <animateMotion dur="4s" repeatCount="indefinite" path="M 425 140 Q 570 210 675 225" begin="2s"/>
   </circle>
 
   <!-- Center node -->
-  <circle cx="425" cy="125" r="38" class="center-glow"/>
-  <circle cx="425" cy="125" r="32" class="center-ring"/>
-  <text x="425" y="122" text-anchor="middle" class="center-text">MAESTRO</text>
-  <text x="425" y="135" text-anchor="middle" class="center-text">AGI</text>
+  <circle cx="425" cy="140" r="40" class="center-aura" fill="#00D9FF" opacity="0.12"/>
+  <circle cx="425" cy="140" r="34" class="center-ring"/>
+  <ellipse cx="425" cy="140" rx="46" ry="14" class="inner-ring1"/>
+  <ellipse cx="425" cy="140" rx="52" ry="11" class="inner-ring2"/>
+  <text x="425" y="136" text-anchor="middle" class="center-text">MAESTRO</text>
+  <text x="425" y="150" text-anchor="middle" class="center-text">AGI</text>
 
   <!-- Node 1: OpenClaw (top-left) -->
-  <g class="node1">
-    <rect x="60" y="30" width="195" height="52" class="node-bg" stroke="#00FF88" rx="8"/>
-    <text x="80" y="55" class="icon">&#x1F99E;</text>
-    <text x="100" y="53" class="node-title">OpenClaw</text>
-    <text x="80" y="72" class="node-desc">Custom AI Assistant Fork</text>
+  <g>
+    <rect x="50" y="32" width="210" height="58" class="n-bg n1" rx="10"/>
+    <text x="72" y="60" class="n-icon">&#x1F99E;</text>
+    <text x="95" y="58" class="n-title">OpenClaw</text>
+    <text x="72" y="78" class="n-desc">Custom AI Assistant Fork</text>
+    <text x="235" y="58" text-anchor="end" class="info-label">TS + Docker</text>
   </g>
 
   <!-- Node 2: Agent Suite (top-right) -->
-  <g class="node2">
-    <rect x="595" y="30" width="195" height="52" class="node-bg" stroke="#BD00FF" rx="8"/>
-    <text x="615" y="55" class="icon">&#x1F916;</text>
-    <text x="635" y="53" class="node-title">Agent Suite</text>
-    <text x="615" y="72" class="node-desc">Autonomous Python Agents</text>
+  <g>
+    <rect x="590" y="32" width="210" height="58" class="n-bg n2" rx="10"/>
+    <text x="612" y="60" class="n-icon">&#x1F916;</text>
+    <text x="635" y="58" class="n-title">Agent Suite</text>
+    <text x="612" y="78" class="n-desc">Autonomous Python Agents</text>
+    <text x="775" y="58" text-anchor="end" class="info-label">Python</text>
   </g>
 
   <!-- Node 3: Web Deployments (bottom-left) -->
-  <g class="node3">
-    <rect x="60" y="170" width="195" height="52" class="node-bg" stroke="#00D9FF" rx="8"/>
-    <text x="80" y="195" class="icon">&#x1F310;</text>
-    <text x="100" y="193" class="node-title">Web Deployments</text>
-    <text x="80" y="212" class="node-desc">Landing Pages &amp; Sites</text>
+  <g>
+    <rect x="50" y="198" width="210" height="58" class="n-bg n3" rx="10"/>
+    <text x="72" y="226" class="n-icon">&#x1F310;</text>
+    <text x="95" y="224" class="n-title">Web Deploys</text>
+    <text x="72" y="244" class="n-desc">Landing Pages &amp; Sites</text>
+    <text x="235" y="224" text-anchor="end" class="info-label">HTML/CSS</text>
   </g>
 
   <!-- Node 4: CI/CD Engine (bottom-right) -->
-  <g class="node4">
-    <rect x="595" y="170" width="195" height="52" class="node-bg" stroke="#FCC624" rx="8"/>
-    <text x="615" y="195" class="icon">&#x2699;&#xFE0F;</text>
-    <text x="635" y="193" class="node-title">CI/CD Engine</text>
-    <text x="615" y="212" class="node-desc">GitHub Actions + Docker</text>
+  <g>
+    <rect x="590" y="198" width="210" height="58" class="n-bg n4" rx="10"/>
+    <text x="612" y="226" class="n-icon">&#x2699;&#xFE0F;</text>
+    <text x="635" y="224" class="n-title">CI/CD Engine</text>
+    <text x="612" y="244" class="n-desc">GitHub Actions + Docker</text>
+    <text x="775" y="224" text-anchor="end" class="info-label">YAML + SH</text>
   </g>
 </svg>

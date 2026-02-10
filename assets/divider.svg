@@ -1,29 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="850" height="20" viewBox="0 0 850 20">
   <defs>
-    <linearGradient id="div-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="dv-grad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#00D9FF" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#00D9FF" stop-opacity="0.8"/>
-      <stop offset="50%" stop-color="#BD00FF" stop-opacity="1"/>
-      <stop offset="75%" stop-color="#00D9FF" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#00D9FF" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="white" stop-opacity="0"/>
-      <stop offset="45%" stop-color="white" stop-opacity="0"/>
-      <stop offset="50%" stop-color="white" stop-opacity="0.6"/>
-      <stop offset="55%" stop-color="white" stop-opacity="0"/>
-      <stop offset="100%" stop-color="white" stop-opacity="0">
-        <animate attributeName="offset" values="0;1" dur="3s" repeatCount="indefinite"/>
-      </stop>
+      <stop offset="15%" stop-color="#00D9FF" stop-opacity="0.6"/>
+      <stop offset="35%" stop-color="#BD00FF" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="65%" stop-color="#BD00FF" stop-opacity="0.8"/>
+      <stop offset="85%" stop-color="#00FF88" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#00FF88" stop-opacity="0"/>
     </linearGradient>
   </defs>
   <style>
-    @keyframes sweep { 0% { x: -200; } 100% { x: 850; } }
-    .divider-line { stroke: url(#div-grad); stroke-width: 1; }
-    .sweep-light { fill: rgba(255,255,255,0.15); animation: sweep 3s ease-in-out infinite; }
+    @keyframes dv-sweep { 0% { transform: translateX(-250px); } 100% { transform: translateX(900px); } }
+    @keyframes dv-glow { 0%,100% { opacity:0.6; } 50% { opacity:1; } }
+    .dv-line { stroke: url(#dv-grad); stroke-width: 1.2; animation: dv-glow 4s ease-in-out infinite; }
+    .dv-light { fill: rgba(255,255,255,0.2); animation: dv-sweep 3.5s ease-in-out infinite; }
+    .dv-dot { fill: #BD00FF; opacity: 0.4; }
   </style>
 
   <rect width="850" height="20" fill="transparent"/>
-  <line x1="50" y1="10" x2="800" y2="10" class="divider-line"/>
-  <rect x="-200" y="8" width="100" height="4" rx="2" class="sweep-light"/>
+  <line x1="40" y1="10" x2="810" y2="10" class="dv-line"/>
+  <rect x="-250" y="7" width="80" height="6" rx="3" class="dv-light"/>
+  <!-- Center diamond accent -->
+  <polygon points="425,6 429,10 425,14 421,10" class="dv-dot"/>
 </svg>
