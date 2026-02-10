@@ -1,97 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="850" height="180" viewBox="0 0 850 180">
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="200" viewBox="0 0 850 200">
   <defs>
-    <filter id="glow-green">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="m-glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="glow-card">
-      <feGaussianBlur stdDeviation="1.5" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <linearGradient id="scan-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00D9FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00D9FF" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#00D9FF" stop-opacity="0"/>
+    </linearGradient>
   </defs>
   <style>
-    @keyframes led-pulse { 0%,100% { opacity:0.4; r:4; } 50% { opacity:1; r:5; } }
-    @keyframes scanline { 0% { transform: translateY(-180px); } 100% { transform: translateY(180px); } }
-    @keyframes card-glow1 { 0%,100% { stroke-opacity:0.3; } 50% { stroke-opacity:0.7; } }
-    @keyframes card-glow2 { 0%,100% { stroke-opacity:0.3; } 50% { stroke-opacity:0.7; } }
-    @keyframes card-glow3 { 0%,100% { stroke-opacity:0.3; } 50% { stroke-opacity:0.7; } }
-    @keyframes card-glow4 { 0%,100% { stroke-opacity:0.3; } 50% { stroke-opacity:0.7; } }
+    @keyframes led-on { 0%,100% { opacity:0.3; r:3.5; } 50% { opacity:1; r:4.5; } }
+    @keyframes scanMove { 0% { transform: translateY(-200px); } 100% { transform: translateY(200px); } }
+    @keyframes cardFade1 { 0%,100% { stroke-opacity:0.25; } 50% { stroke-opacity:0.6; } }
+    @keyframes cardFade2 { 0%,100% { stroke-opacity:0.25; } 50% { stroke-opacity:0.6; } }
+    @keyframes cardFade3 { 0%,100% { stroke-opacity:0.25; } 50% { stroke-opacity:0.6; } }
+    @keyframes cardFade4 { 0%,100% { stroke-opacity:0.25; } 50% { stroke-opacity:0.6; } }
+    @keyframes barGrow1 { 0% { width: 0; } 100% { width: 95px; } }
+    @keyframes barGrow2 { 0% { width: 0; } 100% { width: 85px; } }
+    @keyframes barGrow3 { 0% { width: 0; } 100% { width: 78px; } }
+    @keyframes barGrow4 { 0% { width: 0; } 100% { width: 90px; } }
     .bg { fill: #0D1117; }
-    .sys-title { font-family: 'Courier New', monospace; font-size: 13px; fill: #00FF88; font-weight: bold; filter: url(#glow-green); }
-    .card-bg { fill: #161B22; rx: 6; }
-    .card1 { stroke: #00D9FF; stroke-width: 1; animation: card-glow1 4s ease-in-out infinite; }
-    .card2 { stroke: #BD00FF; stroke-width: 1; animation: card-glow2 4s ease-in-out infinite 1s; }
-    .card3 { stroke: #00FF88; stroke-width: 1; animation: card-glow3 4s ease-in-out infinite 2s; }
-    .card4 { stroke: #00D9FF; stroke-width: 1; animation: card-glow4 4s ease-in-out infinite 3s; }
-    .card-title { font-family: 'Courier New', monospace; font-size: 11px; fill: #C9D1D9; font-weight: bold; }
-    .card-value { font-family: 'Courier New', monospace; font-size: 10px; fill: #8B949E; }
-    .card-icon { font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif; font-size: 18px; }
-    .led { fill: #00FF88; animation: led-pulse 2s ease-in-out infinite; }
-    .led2 { fill: #00FF88; animation: led-pulse 2s ease-in-out infinite 0.5s; }
-    .led3 { fill: #00FF88; animation: led-pulse 2s ease-in-out infinite 1s; }
-    .led4 { fill: #00FF88; animation: led-pulse 2s ease-in-out infinite 1.5s; }
-    .scanline { fill: rgba(0, 217, 255, 0.03); animation: scanline 6s linear infinite; }
-    .timestamp { font-family: 'Courier New', monospace; font-size: 9px; fill: #30363D; }
+    .sys-title { font-family: 'Courier New', monospace; font-size: 12px; fill: #00FF88; font-weight: bold; filter: url(#m-glow); }
+    .c-bg { fill: #161B22; rx: 8; }
+    .c1 { stroke: #00D9FF; stroke-width: 1.2; animation: cardFade1 5s ease-in-out infinite; }
+    .c2 { stroke: #BD00FF; stroke-width: 1.2; animation: cardFade2 5s ease-in-out infinite 1.2s; }
+    .c3 { stroke: #00FF88; stroke-width: 1.2; animation: cardFade3 5s ease-in-out infinite 2.4s; }
+    .c4 { stroke: #00D9FF; stroke-width: 1.2; animation: cardFade4 5s ease-in-out infinite 3.6s; }
+    .c-title { font-family: 'Courier New', monospace; font-size: 11px; fill: #E6EDF3; font-weight: bold; }
+    .c-val { font-family: 'Courier New', monospace; font-size: 9px; fill: #8B949E; }
+    .c-stat { font-family: 'Courier New', monospace; font-size: 10px; fill: #00FF88; font-weight: bold; }
+    .led1 { fill: #00FF88; animation: led-on 2s ease-in-out infinite; }
+    .led2 { fill: #00FF88; animation: led-on 2s ease-in-out infinite 0.5s; }
+    .led3 { fill: #00FF88; animation: led-on 2s ease-in-out infinite 1s; }
+    .led4 { fill: #00FF88; animation: led-on 2s ease-in-out infinite 1.5s; }
+    .scan-bar { fill: url(#scan-grad); animation: scanMove 7s linear infinite; }
+    .ts { font-family: 'Courier New', monospace; font-size: 9px; fill: #30363D; }
+    .bar1 { fill: #00D9FF; opacity: 0.3; rx: 2; animation: barGrow1 2s ease-out forwards; }
+    .bar2 { fill: #BD00FF; opacity: 0.3; rx: 2; animation: barGrow2 2s ease-out forwards 0.3s; }
+    .bar3 { fill: #00FF88; opacity: 0.3; rx: 2; animation: barGrow3 2s ease-out forwards 0.6s; }
+    .bar4 { fill: #00D9FF; opacity: 0.3; rx: 2; animation: barGrow4 2s ease-out forwards 0.9s; }
   </style>
 
   <!-- Background -->
-  <rect width="850" height="180" class="bg" rx="6"/>
-  <rect width="848" height="178" x="1" y="1" fill="none" stroke="#30363D" stroke-width="1" rx="6" opacity="0.5"/>
+  <rect width="850" height="200" class="bg" rx="8"/>
+  <rect width="848" height="198" x="1" y="1" fill="none" stroke="#30363D" stroke-width="1" rx="8" opacity="0.4"/>
 
-  <!-- Scanline effect -->
-  <rect x="0" y="0" width="850" height="4" class="scanline" rx="0"/>
+  <!-- Scanline -->
+  <rect x="0" y="-200" width="850" height="30" class="scan-bar"/>
 
-  <!-- Title -->
-  <text x="30" y="32" class="sys-title">// SYSTEM METRICS</text>
-  <text x="820" y="32" text-anchor="end" class="timestamp">UPTIME: 99.9%</text>
+  <!-- Header -->
+  <text x="28" y="30" class="sys-title">// SYSTEM METRICS</text>
+  <text x="822" y="30" text-anchor="end" class="ts">UPTIME 99.97% // PID 4207</text>
+
+  <!-- Separator line -->
+  <line x1="28" y1="42" x2="822" y2="42" stroke="#30363D" stroke-width="0.5" opacity="0.4"/>
 
   <!-- Card 1: Autonomous Agents -->
   <g>
-    <rect x="25" y="50" width="190" height="110" class="card-bg card1" rx="6"/>
-    <circle cx="185" cy="68" r="4" class="led"/>
-    <text x="45" y="85" class="card-icon">&#x1F916;</text>
-    <text x="75" y="85" class="card-title">Autonomous</text>
-    <text x="75" y="100" class="card-title">Agents</text>
-    <text x="45" y="130" class="card-value">Status: Active</text>
-    <text x="45" y="145" class="card-value">&amp; Running</text>
+    <rect x="22" y="54" width="195" height="130" class="c-bg c1" rx="8"/>
+    <!-- LED -->
+    <circle cx="192" cy="70" r="3.5" class="led1"/>
+    <circle cx="192" cy="70" r="6" fill="#00FF88" opacity="0.08" class="led1"/>
+    <!-- Icon area -->
+    <rect x="34" y="68" width="32" height="32" rx="6" fill="#0D1117" stroke="#00D9FF" stroke-width="0.5" opacity="0.3"/>
+    <text x="50" y="90" text-anchor="middle" font-size="16">&#x1F916;</text>
+    <!-- Text -->
+    <text x="76" y="80" class="c-title">Autonomous</text>
+    <text x="76" y="93" class="c-title">Agents</text>
+    <!-- Bar -->
+    <rect x="34" y="112" width="0" height="6" class="bar1"/>
+    <!-- Status -->
+    <text x="34" y="134" class="c-stat">ACTIVE</text>
+    <text x="34" y="148" class="c-val">Self-healing // Running 24/7</text>
+    <text x="34" y="172" class="c-val">Recursive task execution</text>
   </g>
 
   <!-- Card 2: CI/CD Pipelines -->
   <g>
-    <rect x="230" y="50" width="190" height="110" class="card-bg card2" rx="6"/>
-    <circle cx="390" cy="68" r="4" class="led2"/>
-    <text x="250" y="85" class="card-icon">&#x1F504;</text>
-    <text x="280" y="85" class="card-title">CI/CD</text>
-    <text x="280" y="100" class="card-title">Pipelines</text>
-    <text x="250" y="130" class="card-value">Status: Fully</text>
-    <text x="250" y="145" class="card-value">Automated</text>
+    <rect x="228" y="54" width="195" height="130" class="c-bg c2" rx="8"/>
+    <circle cx="398" cy="70" r="3.5" class="led2"/>
+    <circle cx="398" cy="70" r="6" fill="#00FF88" opacity="0.08" class="led2"/>
+    <rect x="240" y="68" width="32" height="32" rx="6" fill="#0D1117" stroke="#BD00FF" stroke-width="0.5" opacity="0.3"/>
+    <text x="256" y="90" text-anchor="middle" font-size="16">&#x1F504;</text>
+    <text x="282" y="80" class="c-title">CI/CD</text>
+    <text x="282" y="93" class="c-title">Pipelines</text>
+    <rect x="240" y="112" width="0" height="6" class="bar2"/>
+    <text x="240" y="134" class="c-stat">AUTOMATED</text>
+    <text x="240" y="148" class="c-val">Zero-touch deployments</text>
+    <text x="240" y="172" class="c-val">Auto-rollback enabled</text>
   </g>
 
   <!-- Card 3: OpenClaw -->
   <g>
-    <rect x="435" y="50" width="190" height="110" class="card-bg card3" rx="6"/>
-    <circle cx="595" cy="68" r="4" class="led3"/>
-    <text x="455" y="85" class="card-icon">&#x1F99E;</text>
-    <text x="485" y="85" class="card-title">OpenClaw</text>
-    <text x="485" y="100" class="card-title">Fork</text>
-    <text x="455" y="130" class="card-value">Status: Custom</text>
-    <text x="455" y="145" class="card-value">Fork Live</text>
+    <rect x="434" y="54" width="195" height="130" class="c-bg c3" rx="8"/>
+    <circle cx="604" cy="70" r="3.5" class="led3"/>
+    <circle cx="604" cy="70" r="6" fill="#00FF88" opacity="0.08" class="led3"/>
+    <rect x="446" y="68" width="32" height="32" rx="6" fill="#0D1117" stroke="#00FF88" stroke-width="0.5" opacity="0.3"/>
+    <text x="462" y="90" text-anchor="middle" font-size="16">&#x1F99E;</text>
+    <text x="488" y="80" class="c-title">OpenClaw</text>
+    <text x="488" y="93" class="c-title">Fork</text>
+    <rect x="446" y="112" width="0" height="6" class="bar3"/>
+    <text x="446" y="134" class="c-stat">LIVE</text>
+    <text x="446" y="148" class="c-val">Custom fork deployed</text>
+    <text x="446" y="172" class="c-val">Upstream sync active</text>
   </g>
 
   <!-- Card 4: Deploy Status -->
   <g>
-    <rect x="640" y="50" width="185" height="110" class="card-bg card4" rx="6"/>
-    <circle cx="795" cy="68" r="4" class="led4"/>
-    <text x="660" y="85" class="card-icon">&#x1F4E1;</text>
-    <text x="690" y="85" class="card-title">Deploy</text>
-    <text x="690" y="100" class="card-title">Status</text>
-    <text x="660" y="130" class="card-value">All Systems</text>
-    <text x="660" y="145" class="card-value">Go</text>
+    <rect x="640" y="54" width="188" height="130" class="c-bg c4" rx="8"/>
+    <circle cx="803" cy="70" r="3.5" class="led4"/>
+    <circle cx="803" cy="70" r="6" fill="#00FF88" opacity="0.08" class="led4"/>
+    <rect x="652" y="68" width="32" height="32" rx="6" fill="#0D1117" stroke="#00D9FF" stroke-width="0.5" opacity="0.3"/>
+    <text x="668" y="90" text-anchor="middle" font-size="16">&#x1F4E1;</text>
+    <text x="694" y="80" class="c-title">Deploy</text>
+    <text x="694" y="93" class="c-title">Status</text>
+    <rect x="652" y="112" width="0" height="6" class="bar4"/>
+    <text x="652" y="134" class="c-stat">ALL SYSTEMS GO</text>
+    <text x="652" y="148" class="c-val">Multi-env orchestration</text>
+    <text x="652" y="172" class="c-val">Health checks passing</text>
   </g>
 </svg>

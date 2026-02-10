@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="200" viewBox="0 0 180 200">
+  <style>
+    @keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
+    @keyframes eye-blink { 0%,42%,44%,100% { ry:5; } 43% { ry:1; } }
+    @keyframes antenna-pulse { 0%,100% { opacity:0.4; r:5; } 50% { opacity:1; r:7; } }
+    @keyframes core-glow { 0%,100% { opacity:0.6; } 50% { opacity:1; } }
+    @keyframes ring-rotate { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -44; } }
+    @keyframes arm-wave { 0%,100% { transform: rotate(0deg); } 25% { transform: rotate(8deg); } 75% { transform: rotate(-5deg); } }
+    @keyframes chest-scan { 0%,100% { opacity:0.3; } 50% { opacity:0.8; } }
+    .bot-body { animation: float 4s ease-in-out infinite; }
+    .eye-l { animation: eye-blink 6s ease-in-out infinite; }
+    .eye-r { animation: eye-blink 6s ease-in-out infinite 0.1s; }
+    .antenna-tip { animation: antenna-pulse 2s ease-in-out infinite; }
+    .core-light { animation: core-glow 3s ease-in-out infinite; }
+    .orbit-ring { stroke-dasharray: 8 6; animation: ring-rotate 3s linear infinite; fill: none; }
+    .arm-r { animation: arm-wave 4s ease-in-out infinite; transform-origin: 115px 120px; }
+    .chest-line { animation: chest-scan 2.5s ease-in-out infinite; }
+    .chest-line2 { animation: chest-scan 2.5s ease-in-out infinite 0.8s; }
+    .chest-line3 { animation: chest-scan 2.5s ease-in-out infinite 1.6s; }
+  </style>
+
+  <g class="bot-body">
+    <!-- Shadow -->
+    <ellipse cx="90" cy="192" rx="35" ry="5" fill="#00D9FF" opacity="0.08"/>
+
+    <!-- Legs -->
+    <rect x="68" y="160" width="14" height="24" rx="5" fill="#1A2332"/>
+    <rect x="98" y="160" width="14" height="24" rx="5" fill="#1A2332"/>
+    <rect x="65" y="178" width="20" height="10" rx="4" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+    <rect x="95" y="178" width="20" height="10" rx="4" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+
+    <!-- Body -->
+    <rect x="55" y="95" width="70" height="70" rx="12" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+
+    <!-- Chest panel glow -->
+    <rect x="70" y="108" width="40" height="45" rx="6" fill="#0D1117" stroke="#1A2332" stroke-width="1"/>
+
+    <!-- Chest scan lines -->
+    <line x1="75" y1="118" x2="105" y2="118" stroke="#00D9FF" stroke-width="1" class="chest-line" opacity="0.3"/>
+    <line x1="75" y1="128" x2="105" y2="128" stroke="#BD00FF" stroke-width="1" class="chest-line2" opacity="0.3"/>
+    <line x1="75" y1="138" x2="105" y2="138" stroke="#00FF88" stroke-width="1" class="chest-line3" opacity="0.3"/>
+
+    <!-- Core energy -->
+    <circle cx="90" cy="128" r="8" fill="#00D9FF" opacity="0.15" class="core-light"/>
+    <circle cx="90" cy="128" r="4" fill="#00D9FF" opacity="0.4" class="core-light"/>
+    <circle cx="90" cy="128" r="1.5" fill="#FFFFFF" opacity="0.9"/>
+
+    <!-- Arms -->
+    <g>
+      <rect x="38" y="100" width="16" height="40" rx="7" fill="#1A2332" stroke="#30363D" stroke-width="1"/>
+      <circle cx="46" cy="145" r="7" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+    </g>
+    <g class="arm-r">
+      <rect x="126" y="100" width="16" height="40" rx="7" fill="#1A2332" stroke="#30363D" stroke-width="1"/>
+      <circle cx="134" cy="145" r="7" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+    </g>
+
+    <!-- Neck -->
+    <rect x="82" y="85" width="16" height="14" rx="3" fill="#1A2332"/>
+
+    <!-- Head -->
+    <rect x="55" y="35" width="70" height="55" rx="16" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+
+    <!-- Face screen -->
+    <rect x="63" y="43" width="54" height="35" rx="10" fill="#0D1117"/>
+
+    <!-- Eyes -->
+    <ellipse cx="78" cy="58" rx="6" ry="5" fill="#00D9FF" class="eye-l"/>
+    <ellipse cx="102" cy="58" rx="6" ry="5" fill="#00D9FF" class="eye-r"/>
+
+    <!-- Eye highlights -->
+    <circle cx="80" cy="56" r="2" fill="#FFFFFF" opacity="0.6"/>
+    <circle cx="104" cy="56" r="2" fill="#FFFFFF" opacity="0.6"/>
+
+    <!-- Mouth -->
+    <rect x="82" y="68" width="16" height="3" rx="1.5" fill="#00FF88" opacity="0.6"/>
+
+    <!-- Antenna -->
+    <line x1="90" y1="35" x2="90" y2="18" stroke="#30363D" stroke-width="2"/>
+    <circle cx="90" cy="14" r="5" fill="#BD00FF" class="antenna-tip" opacity="0.4"/>
+    <circle cx="90" cy="14" r="2" fill="#BD00FF" opacity="0.8"/>
+
+    <!-- Orbital ring around head -->
+    <ellipse cx="90" cy="55" rx="48" ry="12" stroke="#00D9FF" stroke-width="1" class="orbit-ring" opacity="0.3"/>
+
+    <!-- Ear details -->
+    <rect x="49" y="50" width="6" height="15" rx="3" fill="#1A2332" stroke="#00D9FF" stroke-width="0.5" opacity="0.5"/>
+    <rect x="125" y="50" width="6" height="15" rx="3" fill="#1A2332" stroke="#00D9FF" stroke-width="0.5" opacity="0.5"/>
+
+    <!-- Shoulder bolts -->
+    <circle cx="58" cy="100" r="3" fill="#0D1117" stroke="#30363D" stroke-width="1"/>
+    <circle cx="122" cy="100" r="3" fill="#0D1117" stroke="#30363D" stroke-width="1"/>
+  </g>
+</svg>

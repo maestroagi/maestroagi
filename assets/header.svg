@@ -1,104 +1,207 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="850" height="200" viewBox="0 0 850 200">
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="230" viewBox="0 0 850 230">
   <defs>
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0D1117">
-        <animate attributeName="stop-color" values="#0D1117;#1a0533;#0D1117" dur="8s" repeatCount="indefinite"/>
+      <stop offset="0%" stop-color="#0D1117">
+        <animate attributeName="stop-color" values="#0D1117;#120826;#0D1117" dur="10s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="50%" style="stop-color:#1a0533">
-        <animate attributeName="stop-color" values="#1a0533;#0D1117;#1a0533" dur="8s" repeatCount="indefinite"/>
+      <stop offset="50%" stop-color="#120826">
+        <animate attributeName="stop-color" values="#120826;#0D1117;#120826" dur="10s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="100%" style="stop-color:#0D1117">
-        <animate attributeName="stop-color" values="#0D1117;#1a0533;#0D1117" dur="8s" repeatCount="indefinite"/>
+      <stop offset="100%" stop-color="#0D1117">
+        <animate attributeName="stop-color" values="#0D1117;#120826;#0D1117" dur="10s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D9FF"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#BD00FF"/>
+    </linearGradient>
     <filter id="glow-cyan">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <filter id="glow-soft">
       <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <radialGradient id="orb1" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#00D9FF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00D9FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#BD00FF" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#BD00FF" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <style>
-    @keyframes float1 { 0%,100% { transform: translate(0,0); opacity:0.3; } 50% { transform: translate(10px,-15px); opacity:0.7; } }
-    @keyframes float2 { 0%,100% { transform: translate(0,0); opacity:0.2; } 50% { transform: translate(-8px,12px); opacity:0.6; } }
-    @keyframes float3 { 0%,100% { transform: translate(0,0); opacity:0.4; } 50% { transform: translate(15px,8px); opacity:0.8; } }
-    @keyframes float4 { 0%,100% { transform: translate(0,0); opacity:0.2; } 50% { transform: translate(-12px,-10px); opacity:0.5; } }
-    @keyframes fadeText1 { 0%,20% { opacity:1; } 22%,100% { opacity:0; } }
-    @keyframes fadeText2 { 0%,24% { opacity:0; } 25%,45% { opacity:1; } 47%,100% { opacity:0; } }
-    @keyframes fadeText3 { 0%,49% { opacity:0; } 50%,70% { opacity:1; } 72%,100% { opacity:0; } }
-    @keyframes fadeText4 { 0%,74% { opacity:0; } 75%,95% { opacity:1; } 97%,100% { opacity:0; } }
-    @keyframes typewriter { 0% { width: 0; } 40% { width: 320px; } 60% { width: 320px; } 80% { width: 320px; } 100% { width: 320px; } }
+    @keyframes float1 { 0%,100% { transform: translate(0,0); opacity:0.2; } 50% { transform: translate(12px,-18px); opacity:0.6; } }
+    @keyframes float2 { 0%,100% { transform: translate(0,0); opacity:0.15; } 50% { transform: translate(-10px,14px); opacity:0.5; } }
+    @keyframes float3 { 0%,100% { transform: translate(0,0); opacity:0.25; } 50% { transform: translate(8px,10px); opacity:0.55; } }
+    @keyframes float4 { 0%,100% { transform: translate(0,0); opacity:0.18; } 50% { transform: translate(-15px,-8px); opacity:0.45; } }
+    @keyframes fadeA { 0%,22% { opacity:1; } 24%,100% { opacity:0; } }
+    @keyframes fadeB { 0%,24% { opacity:0; } 26%,47% { opacity:1; } 49%,100% { opacity:0; } }
+    @keyframes fadeC { 0%,49% { opacity:0; } 51%,72% { opacity:1; } 74%,100% { opacity:0; } }
+    @keyframes fadeD { 0%,74% { opacity:0; } 76%,97% { opacity:1; } 99%,100% { opacity:0; } }
     @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
-    @keyframes titlePulse { 0%,100% { opacity:0.9; } 50% { opacity:1; } }
-    .particle { fill: #00D9FF; }
-    .particle-purple { fill: #BD00FF; }
-    .particle-green { fill: #00FF88; }
-    .p1 { animation: float1 6s ease-in-out infinite; }
-    .p2 { animation: float2 8s ease-in-out infinite; }
-    .p3 { animation: float3 7s ease-in-out infinite; }
-    .p4 { animation: float4 9s ease-in-out infinite; }
-    .p5 { animation: float1 5s ease-in-out infinite 1s; }
-    .p6 { animation: float2 7s ease-in-out infinite 2s; }
-    .p7 { animation: float3 6s ease-in-out infinite 0.5s; }
-    .p8 { animation: float4 8s ease-in-out infinite 1.5s; }
-    .p9 { animation: float1 9s ease-in-out infinite 3s; }
-    .p10 { animation: float2 6s ease-in-out infinite 2.5s; }
-    .sub1 { animation: fadeText1 16s ease-in-out infinite; }
-    .sub2 { animation: fadeText2 16s ease-in-out infinite; }
-    .sub3 { animation: fadeText3 16s ease-in-out infinite; }
-    .sub4 { animation: fadeText4 16s ease-in-out infinite; }
-    .title { font-family: 'Courier New', monospace; font-weight: bold; font-size: 42px; fill: #FFFFFF; filter: url(#glow-cyan); animation: titlePulse 4s ease-in-out infinite; }
-    .subtitle { font-family: 'Courier New', monospace; font-size: 16px; fill: #00D9FF; }
-    .codeline { font-family: 'Courier New', monospace; font-size: 12px; fill: #30363D; }
+    @keyframes titleShimmer { 0%,100% { opacity:0.92; } 50% { opacity:1; } }
+    @keyframes orb-drift1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,15px); } }
+    @keyframes orb-drift2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-25px,-20px); } }
+    @keyframes gridPulse { 0%,100% { opacity:0.03; } 50% { opacity:0.06; } }
+    @keyframes botFloat { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
+    @keyframes eyeBlink { 0%,42%,44%,100% { ry:4.5; } 43% { ry:0.8; } }
+    @keyframes antennaPulse { 0%,100% { opacity:0.4; r:4; } 50% { opacity:1; r:5.5; } }
+    @keyframes coreGlow { 0%,100% { opacity:0.5; } 50% { opacity:1; } }
+    @keyframes orbitRing { 0% { stroke-dashoffset:0; } 100% { stroke-dashoffset:-40; } }
+    @keyframes armWave { 0%,100% { transform: rotate(0deg); } 30% { transform: rotate(12deg); } 60% { transform: rotate(-6deg); } }
+    @keyframes chestScan1 { 0%,100% { opacity:0.2; } 50% { opacity:0.7; } }
+    @keyframes chestScan2 { 0%,100% { opacity:0.2; } 50% { opacity:0.7; } }
+    .p { fill: #00D9FF; }
+    .pp { fill: #BD00FF; }
+    .pg { fill: #00FF88; }
+    .f1 { animation: float1 7s ease-in-out infinite; }
+    .f2 { animation: float2 9s ease-in-out infinite; }
+    .f3 { animation: float3 8s ease-in-out infinite; }
+    .f4 { animation: float4 6s ease-in-out infinite; }
+    .f5 { animation: float1 5.5s ease-in-out infinite 1.2s; }
+    .f6 { animation: float2 7.5s ease-in-out infinite 2s; }
+    .f7 { animation: float3 6.5s ease-in-out infinite 0.8s; }
+    .f8 { animation: float4 8.5s ease-in-out infinite 1.5s; }
+    .sA { animation: fadeA 16s ease-in-out infinite; }
+    .sB { animation: fadeB 16s ease-in-out infinite; }
+    .sC { animation: fadeC 16s ease-in-out infinite; }
+    .sD { animation: fadeD 16s ease-in-out infinite; }
+    .title { font-family: 'Courier New', monospace; font-weight: bold; font-size: 44px; fill: url(#title-grad); filter: url(#glow-cyan); animation: titleShimmer 5s ease-in-out infinite; }
+    .subtitle { font-family: 'Courier New', monospace; font-size: 15px; fill: #00D9FF; filter: url(#glow-soft); }
+    .codeln { font-family: 'Courier New', monospace; font-size: 11px; fill: #30363D; }
     .cursor { animation: blink 1s step-end infinite; fill: #00FF88; }
+    .grid-line { stroke: #30363D; stroke-width: 0.3; animation: gridPulse 6s ease-in-out infinite; }
+    .orb-1 { animation: orb-drift1 12s ease-in-out infinite; }
+    .orb-2 { animation: orb-drift2 14s ease-in-out infinite; }
+    .bot-g { animation: botFloat 4s ease-in-out infinite; }
+    .b-eye-l { animation: eyeBlink 5s ease-in-out infinite; }
+    .b-eye-r { animation: eyeBlink 5s ease-in-out infinite 0.15s; }
+    .b-antenna { animation: antennaPulse 2s ease-in-out infinite; }
+    .b-core { animation: coreGlow 3s ease-in-out infinite; }
+    .b-orbit { stroke-dasharray: 7 5; animation: orbitRing 3s linear infinite; fill: none; }
+    .b-arm-r { animation: armWave 3.5s ease-in-out infinite; transform-origin: 755px 118px; }
+    .b-chest1 { animation: chestScan1 2.5s ease-in-out infinite; }
+    .b-chest2 { animation: chestScan2 2.5s ease-in-out infinite 0.9s; }
   </style>
 
   <!-- Background -->
-  <rect width="850" height="200" fill="url(#bg-grad)" rx="6"/>
+  <rect width="850" height="230" fill="url(#bg-grad)" rx="8"/>
+  <rect width="848" height="228" x="1" y="1" fill="none" stroke="#30363D" stroke-width="1" rx="8" opacity="0.4"/>
 
-  <!-- Border glow -->
-  <rect width="848" height="198" x="1" y="1" fill="none" stroke="#30363D" stroke-width="1" rx="6" opacity="0.5"/>
+  <!-- Subtle grid -->
+  <line x1="0" y1="50" x2="850" y2="50" class="grid-line"/>
+  <line x1="0" y1="100" x2="850" y2="100" class="grid-line"/>
+  <line x1="0" y1="150" x2="850" y2="150" class="grid-line"/>
+  <line x1="0" y1="200" x2="850" y2="200" class="grid-line"/>
+  <line x1="170" y1="0" x2="170" y2="230" class="grid-line"/>
+  <line x1="340" y1="0" x2="340" y2="230" class="grid-line"/>
+  <line x1="510" y1="0" x2="510" y2="230" class="grid-line"/>
+  <line x1="680" y1="0" x2="680" y2="230" class="grid-line"/>
+
+  <!-- Ambient orbs -->
+  <circle cx="150" cy="80" r="90" fill="url(#orb1)" class="orb-1"/>
+  <circle cx="700" cy="150" r="110" fill="url(#orb2)" class="orb-2"/>
 
   <!-- Particles -->
-  <circle cx="80" cy="40" r="1.5" class="particle p1"/>
-  <circle cx="200" cy="160" r="1" class="particle-purple p2"/>
-  <circle cx="350" cy="30" r="1.2" class="particle p3"/>
-  <circle cx="500" cy="170" r="1" class="particle-green p4"/>
-  <circle cx="650" cy="50" r="1.5" class="particle-purple p5"/>
-  <circle cx="750" cy="140" r="1" class="particle p6"/>
-  <circle cx="120" cy="120" r="1.2" class="particle-green p7"/>
-  <circle cx="400" cy="90" r="0.8" class="particle p8"/>
-  <circle cx="580" cy="130" r="1" class="particle-purple p9"/>
-  <circle cx="700" cy="60" r="1.3" class="particle-green p10"/>
-  <circle cx="280" cy="80" r="0.8" class="particle p2"/>
-  <circle cx="820" cy="100" r="1" class="particle-purple p3"/>
-  <circle cx="50" cy="170" r="1.1" class="particle p5"/>
-  <circle cx="460" cy="25" r="0.9" class="particle-green p1"/>
+  <circle cx="60" cy="35" r="1.2" class="p f1"/>
+  <circle cx="180" cy="180" r="0.9" class="pp f2"/>
+  <circle cx="310" cy="25" r="1.1" class="p f3"/>
+  <circle cx="450" cy="195" r="0.8" class="pg f4"/>
+  <circle cx="560" cy="40" r="1.3" class="pp f5"/>
+  <circle cx="640" cy="190" r="1" class="p f6"/>
+  <circle cx="100" cy="140" r="1.1" class="pg f7"/>
+  <circle cx="380" cy="75" r="0.7" class="p f8"/>
+  <circle cx="520" cy="155" r="0.9" class="pp f1"/>
+  <circle cx="790" cy="45" r="1.2" class="pg f3"/>
+  <circle cx="240" cy="100" r="0.8" class="p f4"/>
+  <circle cx="670" cy="110" r="1" class="pp f7"/>
+  <circle cx="40" cy="200" r="0.9" class="pg f6"/>
+  <circle cx="810" cy="170" r="1.1" class="p f2"/>
+  <circle cx="430" cy="20" r="0.7" class="pg f8"/>
 
-  <!-- Code line in background -->
-  <text x="60" y="185" class="codeline">&gt; initializing autonomous systems...</text>
-  <rect x="318" y="174" width="8" height="14" class="cursor"/>
+  <!-- Corner brackets -->
+  <line x1="18" y1="14" x2="55" y2="14" stroke="#00D9FF" stroke-width="1.2" opacity="0.35"/>
+  <line x1="18" y1="14" x2="18" y2="50" stroke="#00D9FF" stroke-width="1.2" opacity="0.35"/>
+  <line x1="795" y1="216" x2="832" y2="216" stroke="#BD00FF" stroke-width="1.2" opacity="0.35"/>
+  <line x1="832" y1="180" x2="832" y2="216" stroke="#BD00FF" stroke-width="1.2" opacity="0.35"/>
+  <line x1="795" y1="14" x2="832" y2="14" stroke="#00FF88" stroke-width="1" opacity="0.2"/>
+  <line x1="832" y1="14" x2="832" y2="50" stroke="#00FF88" stroke-width="1" opacity="0.2"/>
+  <line x1="18" y1="180" x2="18" y2="216" stroke="#00FF88" stroke-width="1" opacity="0.2"/>
+  <line x1="18" y1="216" x2="55" y2="216" stroke="#00FF88" stroke-width="1" opacity="0.2"/>
+
+  <!-- Code line background -->
+  <text x="50" y="215" class="codeln">&gt; initializing recursive autonomous systems...</text>
+  <rect x="340" y="204" width="8" height="13" class="cursor"/>
+
+  <!-- === Bot mascot (right side) === -->
+  <g class="bot-g">
+    <!-- Bot shadow -->
+    <ellipse cx="745" cy="192" rx="28" ry="4" fill="#00D9FF" opacity="0.06"/>
+    <!-- Legs -->
+    <rect x="728" y="163" width="11" height="20" rx="4" fill="#1A2332"/>
+    <rect x="752" y="163" width="11" height="20" rx="4" fill="#1A2332"/>
+    <rect x="725" y="178" width="17" height="8" rx="3" fill="#161B22" stroke="#30363D" stroke-width="0.8"/>
+    <rect x="749" y="178" width="17" height="8" rx="3" fill="#161B22" stroke="#30363D" stroke-width="0.8"/>
+    <!-- Body -->
+    <rect x="717" y="100" width="56" height="66" rx="10" fill="#161B22" stroke="#30363D" stroke-width="1.2"/>
+    <!-- Chest panel -->
+    <rect x="729" y="111" width="32" height="38" rx="5" fill="#0D1117" stroke="#1A2332" stroke-width="0.8"/>
+    <!-- Chest scan lines -->
+    <line x1="733" y1="120" x2="757" y2="120" stroke="#00D9FF" stroke-width="0.8" class="b-chest1" opacity="0.2"/>
+    <line x1="733" y1="128" x2="757" y2="128" stroke="#BD00FF" stroke-width="0.8" class="b-chest2" opacity="0.2"/>
+    <line x1="733" y1="136" x2="757" y2="136" stroke="#00FF88" stroke-width="0.8" class="b-chest1" opacity="0.2"/>
+    <!-- Core -->
+    <circle cx="745" cy="130" r="6" fill="#00D9FF" opacity="0.12" class="b-core"/>
+    <circle cx="745" cy="130" r="3" fill="#00D9FF" opacity="0.35" class="b-core"/>
+    <circle cx="745" cy="130" r="1.2" fill="#FFF" opacity="0.8"/>
+    <!-- Left arm -->
+    <rect x="703" y="105" width="13" height="34" rx="6" fill="#1A2332" stroke="#30363D" stroke-width="0.8"/>
+    <circle cx="709" cy="143" r="5.5" fill="#161B22" stroke="#30363D" stroke-width="0.8"/>
+    <!-- Right arm (waving) -->
+    <g class="b-arm-r">
+      <rect x="774" y="105" width="13" height="34" rx="6" fill="#1A2332" stroke="#30363D" stroke-width="0.8"/>
+      <circle cx="780" cy="143" r="5.5" fill="#161B22" stroke="#30363D" stroke-width="0.8"/>
+    </g>
+    <!-- Neck -->
+    <rect x="739" y="88" width="12" height="14" rx="3" fill="#1A2332"/>
+    <!-- Head -->
+    <rect x="717" y="40" width="56" height="52" rx="14" fill="#161B22" stroke="#30363D" stroke-width="1.2"/>
+    <!-- Face screen -->
+    <rect x="724" y="47" width="42" height="32" rx="9" fill="#0D1117"/>
+    <!-- Eyes -->
+    <ellipse cx="737" cy="61" rx="5" ry="4.5" fill="#00D9FF" class="b-eye-l"/>
+    <ellipse cx="755" cy="61" rx="5" ry="4.5" fill="#00D9FF" class="b-eye-r"/>
+    <circle cx="738.5" cy="59.5" r="1.5" fill="#FFF" opacity="0.5"/>
+    <circle cx="756.5" cy="59.5" r="1.5" fill="#FFF" opacity="0.5"/>
+    <!-- Mouth -->
+    <rect x="740" y="70" width="12" height="2.5" rx="1.2" fill="#00FF88" opacity="0.5"/>
+    <!-- Antenna -->
+    <line x1="745" y1="40" x2="745" y2="24" stroke="#30363D" stroke-width="1.5"/>
+    <circle cx="745" cy="20" r="4" fill="#BD00FF" class="b-antenna" opacity="0.4"/>
+    <circle cx="745" cy="20" r="1.8" fill="#BD00FF" opacity="0.7"/>
+    <!-- Orbit ring -->
+    <ellipse cx="745" cy="58" rx="40" ry="10" stroke="#00D9FF" stroke-width="0.8" class="b-orbit" opacity="0.25"/>
+    <!-- Ear panels -->
+    <rect x="712" y="53" width="5" height="13" rx="2.5" fill="#1A2332" stroke="#00D9FF" stroke-width="0.4" opacity="0.4"/>
+    <rect x="773" y="53" width="5" height="13" rx="2.5" fill="#1A2332" stroke="#00D9FF" stroke-width="0.4" opacity="0.4"/>
+    <!-- Shoulder bolts -->
+    <circle cx="719" cy="104" r="2.5" fill="#0D1117" stroke="#30363D" stroke-width="0.8"/>
+    <circle cx="771" cy="104" r="2.5" fill="#0D1117" stroke="#30363D" stroke-width="0.8"/>
+  </g>
 
   <!-- Main Title -->
-  <text x="425" y="85" text-anchor="middle" class="title">MAESTRO AGI</text>
+  <text x="340" y="95" text-anchor="middle" class="title">MAESTRO AGI</text>
 
   <!-- Rotating subtitles -->
-  <text x="425" y="125" text-anchor="middle" class="subtitle sub1">DevOps &amp; Automation Engineer</text>
-  <text x="425" y="125" text-anchor="middle" class="subtitle sub2">Building Autonomous AI Agents</text>
-  <text x="425" y="125" text-anchor="middle" class="subtitle sub3">CI/CD Pipeline Architect</text>
-  <text x="425" y="125" text-anchor="middle" class="subtitle sub4">Open Source Contributor</text>
+  <text x="340" y="130" text-anchor="middle" class="subtitle sA">DevOps &amp; Automation Engineer</text>
+  <text x="340" y="130" text-anchor="middle" class="subtitle sB">Building Autonomous AI Agents</text>
+  <text x="340" y="130" text-anchor="middle" class="subtitle sC">CI/CD Pipeline Architect</text>
+  <text x="340" y="130" text-anchor="middle" class="subtitle sD">Open Source for Human Progress</text>
 
-  <!-- Decorative corner accents -->
-  <line x1="20" y1="15" x2="50" y2="15" stroke="#00D9FF" stroke-width="1" opacity="0.4"/>
-  <line x1="20" y1="15" x2="20" y2="45" stroke="#00D9FF" stroke-width="1" opacity="0.4"/>
-  <line x1="800" y1="185" x2="830" y2="185" stroke="#BD00FF" stroke-width="1" opacity="0.4"/>
-  <line x1="830" y1="155" x2="830" y2="185" stroke="#BD00FF" stroke-width="1" opacity="0.4"/>
+  <!-- Tagline -->
+  <text x="340" y="158" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#484F58" opacity="0.7">recursive autonomy // open source // human dignity</text>
 </svg>
