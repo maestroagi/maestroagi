@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="120" viewBox="0 0 850 120">
+  <defs>
+    <filter id="glow-tech">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <style>
+    @keyframes dash-flow { 0% { stroke-dashoffset: 20; } 100% { stroke-dashoffset: 0; } }
+    @keyframes pulse-py { 0%,100% { opacity:0.8; } 50% { opacity:1; filter: drop-shadow(0 0 6px #3776AB); } }
+    @keyframes pulse-ts { 0%,100% { opacity:0.8; } 50% { opacity:1; filter: drop-shadow(0 0 6px #3178C6); } }
+    @keyframes pulse-dk { 0%,100% { opacity:0.8; } 50% { opacity:1; filter: drop-shadow(0 0 6px #2496ED); } }
+    @keyframes pulse-ga { 0%,100% { opacity:0.8; } 50% { opacity:1; filter: drop-shadow(0 0 6px #2088FF); } }
+    @keyframes pulse-lx { 0%,100% { opacity:0.8; } 50% { opacity:1; filter: drop-shadow(0 0 6px #FCC624); } }
+    @keyframes pulse-ba { 0%,100% { opacity:0.8; } 50% { opacity:1; filter: drop-shadow(0 0 6px #4EAA25); } }
+    @keyframes pulse-nj { 0%,100% { opacity:0.8; } 50% { opacity:1; filter: drop-shadow(0 0 6px #339933); } }
+    .flow-line { stroke-dasharray: 8 4; animation: dash-flow 1.5s linear infinite; }
+    .badge-bg { fill: #161B22; stroke-width: 1.5; rx: 8; }
+    .badge-text { font-family: 'Courier New', monospace; font-size: 11px; fill: #C9D1D9; font-weight: bold; }
+    .title-label { font-family: 'Courier New', monospace; font-size: 10px; fill: #484F58; }
+    .node-py { animation: pulse-py 3s ease-in-out infinite; }
+    .node-ts { animation: pulse-ts 3s ease-in-out infinite 0.3s; }
+    .node-dk { animation: pulse-dk 3s ease-in-out infinite 0.6s; }
+    .node-ga { animation: pulse-ga 3s ease-in-out infinite 0.9s; }
+    .node-lx { animation: pulse-lx 3s ease-in-out infinite 1.2s; }
+    .node-ba { animation: pulse-ba 3s ease-in-out infinite 1.5s; }
+    .node-nj { animation: pulse-nj 3s ease-in-out infinite 1.8s; }
+  </style>
+
+  <!-- Background -->
+  <rect width="850" height="120" fill="#0D1117" rx="6"/>
+  <rect width="848" height="118" x="1" y="1" fill="none" stroke="#30363D" stroke-width="1" rx="6" opacity="0.5"/>
+
+  <!-- Title -->
+  <text x="425" y="22" text-anchor="middle" class="title-label">// DATA PIPELINE</text>
+
+  <!-- Flow lines connecting badges -->
+  <line x1="143" y1="62" x2="175" y2="62" class="flow-line" stroke="#3776AB" stroke-width="1.5"/>
+  <line x1="260" y1="62" x2="290" y2="62" class="flow-line" stroke="#3178C6" stroke-width="1.5"/>
+  <line x1="378" y1="62" x2="405" y2="62" class="flow-line" stroke="#2496ED" stroke-width="1.5"/>
+  <line x1="520" y1="62" x2="540" y2="62" class="flow-line" stroke="#2088FF" stroke-width="1.5"/>
+  <line x1="620" y1="62" x2="647" y2="62" class="flow-line" stroke="#FCC624" stroke-width="1.5"/>
+  <line x1="720" y1="62" x2="748" y2="62" class="flow-line" stroke="#4EAA25" stroke-width="1.5"/>
+
+  <!-- Arrow indicators -->
+  <polygon points="173,58 181,62 173,66" fill="#3776AB" opacity="0.7"/>
+  <polygon points="288,58 296,62 288,66" fill="#3178C6" opacity="0.7"/>
+  <polygon points="403,58 411,62 403,66" fill="#2496ED" opacity="0.7"/>
+  <polygon points="538,58 546,62 538,66" fill="#2088FF" opacity="0.7"/>
+  <polygon points="645,58 653,62 645,66" fill="#FCC624" opacity="0.7"/>
+  <polygon points="746,58 754,62 746,66" fill="#4EAA25" opacity="0.7"/>
+
+  <!-- Python -->
+  <g class="node-py">
+    <rect x="58" y="40" width="85" height="44" class="badge-bg" stroke="#3776AB"/>
+    <circle cx="76" cy="62" r="8" fill="#3776AB" opacity="0.3"/>
+    <text x="77" y="66" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#3776AB" font-weight="bold">Py</text>
+    <text x="110" y="66" text-anchor="middle" class="badge-text">Python</text>
+  </g>
+
+  <!-- TypeScript -->
+  <g class="node-ts">
+    <rect x="175" y="40" width="85" height="44" class="badge-bg" stroke="#3178C6"/>
+    <circle cx="193" cy="62" r="8" fill="#3178C6" opacity="0.3"/>
+    <text x="194" y="66" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#3178C6" font-weight="bold">TS</text>
+    <text x="228" y="66" text-anchor="middle" class="badge-text">TypeScript</text>
+  </g>
+
+  <!-- Docker -->
+  <g class="node-dk">
+    <rect x="293" y="40" width="85" height="44" class="badge-bg" stroke="#2496ED"/>
+    <circle cx="311" cy="62" r="8" fill="#2496ED" opacity="0.3"/>
+    <text x="312" y="66" text-anchor="middle" font-family="Courier New, monospace" font-size="9" fill="#2496ED" font-weight="bold">DK</text>
+    <text x="346" y="66" text-anchor="middle" class="badge-text">Docker</text>
+  </g>
+
+  <!-- GitHub Actions -->
+  <g class="node-ga">
+    <rect x="408" y="40" width="112" height="44" class="badge-bg" stroke="#2088FF"/>
+    <circle cx="426" cy="62" r="8" fill="#2088FF" opacity="0.3"/>
+    <text x="427" y="66" text-anchor="middle" font-family="Courier New, monospace" font-size="9" fill="#2088FF" font-weight="bold">GA</text>
+    <text x="474" y="66" text-anchor="middle" class="badge-text">GH Actions</text>
+  </g>
+
+  <!-- Linux -->
+  <g class="node-lx">
+    <rect x="543" y="40" width="77" height="44" class="badge-bg" stroke="#FCC624"/>
+    <circle cx="561" cy="62" r="8" fill="#FCC624" opacity="0.3"/>
+    <text x="562" y="66" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#FCC624" font-weight="bold">LX</text>
+    <text x="594" y="66" text-anchor="middle" class="badge-text">Linux</text>
+  </g>
+
+  <!-- Bash -->
+  <g class="node-ba">
+    <rect x="650" y="40" width="72" height="44" class="badge-bg" stroke="#4EAA25"/>
+    <circle cx="668" cy="62" r="8" fill="#4EAA25" opacity="0.3"/>
+    <text x="669" y="66" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#4EAA25" font-weight="bold">SH</text>
+    <text x="699" y="66" text-anchor="middle" class="badge-text">Bash</text>
+  </g>
+
+  <!-- Node.js -->
+  <g class="node-nj">
+    <rect x="752" y="40" width="82" height="44" class="badge-bg" stroke="#339933"/>
+    <circle cx="770" cy="62" r="8" fill="#339933" opacity="0.3"/>
+    <text x="771" y="66" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#339933" font-weight="bold">NJ</text>
+    <text x="805" y="66" text-anchor="middle" class="badge-text">Node.js</text>
+  </g>
+
+  <!-- Bottom decorative line -->
+  <line x1="58" y1="100" x2="834" y2="100" stroke="#30363D" stroke-width="0.5" opacity="0.3"/>
+  <text x="425" y="112" text-anchor="middle" class="title-label">v2.0 // stack.config</text>
+</svg>

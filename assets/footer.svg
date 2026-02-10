@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="80" viewBox="0 0 850 80">
+  <defs>
+    <linearGradient id="footer-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D9FF" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#00D9FF" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#BD00FF" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#00D9FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00D9FF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="line-glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <style>
+    @keyframes line-pulse { 0%,100% { opacity:0.6; } 50% { opacity:1; } }
+    @keyframes text-fadein { 0%,10% { opacity:0; } 30%,100% { opacity:1; } }
+    @keyframes shimmer { 0% { transform: translateX(-850px); } 100% { transform: translateX(850px); } }
+    @keyframes matrix-drop1 { 0% { transform: translateY(-20px); opacity:0; } 10% { opacity:0.15; } 90% { opacity:0.15; } 100% { transform: translateY(80px); opacity:0; } }
+    @keyframes matrix-drop2 { 0% { transform: translateY(-30px); opacity:0; } 10% { opacity:0.12; } 90% { opacity:0.12; } 100% { transform: translateY(90px); opacity:0; } }
+    @keyframes matrix-drop3 { 0% { transform: translateY(-15px); opacity:0; } 10% { opacity:0.1; } 90% { opacity:0.1; } 100% { transform: translateY(70px); opacity:0; } }
+    .bg { fill: #0D1117; }
+    .neon-line { stroke: url(#footer-grad); stroke-width: 2; filter: url(#line-glow); animation: line-pulse 3s ease-in-out infinite; }
+    .footer-text { font-family: 'Courier New', monospace; font-size: 13px; fill: #C9D1D9; animation: text-fadein 3s ease-in-out; }
+    .footer-accent { fill: #00D9FF; }
+    .matrix-char { font-family: 'Courier New', monospace; font-size: 10px; fill: #00FF88; }
+    .m1 { animation: matrix-drop1 4s linear infinite; }
+    .m2 { animation: matrix-drop2 5s linear infinite 1s; }
+    .m3 { animation: matrix-drop3 6s linear infinite 2s; }
+    .m4 { animation: matrix-drop1 4.5s linear infinite 0.5s; }
+    .m5 { animation: matrix-drop2 5.5s linear infinite 1.5s; }
+    .m6 { animation: matrix-drop3 3.5s linear infinite 0.8s; }
+    .m7 { animation: matrix-drop1 6s linear infinite 2.5s; }
+    .m8 { animation: matrix-drop2 4s linear infinite 1.2s; }
+    .shimmer-rect { fill: rgba(0, 217, 255, 0.05); animation: shimmer 4s linear infinite; }
+  </style>
+
+  <!-- Background -->
+  <rect width="850" height="80" class="bg" rx="6"/>
+
+  <!-- Matrix rain (very subtle) -->
+  <text x="70" y="20" class="matrix-char m1">0</text>
+  <text x="70" y="35" class="matrix-char m1">1</text>
+  <text x="150" y="10" class="matrix-char m2">1</text>
+  <text x="150" y="25" class="matrix-char m2">0</text>
+  <text x="150" y="40" class="matrix-char m2">1</text>
+  <text x="300" y="15" class="matrix-char m3">0</text>
+  <text x="300" y="30" class="matrix-char m3">0</text>
+  <text x="500" y="20" class="matrix-char m4">1</text>
+  <text x="500" y="35" class="matrix-char m4">1</text>
+  <text x="620" y="10" class="matrix-char m5">0</text>
+  <text x="620" y="25" class="matrix-char m5">1</text>
+  <text x="620" y="40" class="matrix-char m5">0</text>
+  <text x="740" y="18" class="matrix-char m6">1</text>
+  <text x="740" y="33" class="matrix-char m6">0</text>
+  <text x="220" y="12" class="matrix-char m7">1</text>
+  <text x="220" y="27" class="matrix-char m7">0</text>
+  <text x="420" y="22" class="matrix-char m8">0</text>
+  <text x="420" y="37" class="matrix-char m8">1</text>
+
+  <!-- Neon line -->
+  <line x1="50" y1="25" x2="800" y2="25" class="neon-line"/>
+
+  <!-- Shimmer effect on line -->
+  <rect x="-850" y="22" width="200" height="6" class="shimmer-rect" rx="3"/>
+
+  <!-- Footer text -->
+  <text x="425" y="55" text-anchor="middle" class="footer-text">
+    <tspan class="footer-accent">&#x26A1;</tspan> Automating the future, one pipeline at a time
+  </text>
+
+  <!-- Subtle bottom border -->
+  <line x1="200" y1="70" x2="650" y2="70" stroke="#30363D" stroke-width="0.5" opacity="0.3"/>
+</svg>
